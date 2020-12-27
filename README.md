@@ -5,7 +5,9 @@ Extracting the content of files in the given directory and save it to the csv fi
 - cd ./src
 - python ./installPackages.py
 - usage: python ./ToCsv.py ../input_files [--save xxx\xxx\a.csv] [--mod 1]
+- 注意：src目录下的csv和txts目录是最后生成结果和中间过程转化的txt文档，建议在运行代码之前将这两个目录移动到别处或删除，或者可以选择为csv指定保存路径
 ## 简单雏形，后续有待改进
+- 因为最后存放的csv中，所以编码使用GBK
 - 放到github上的目的是备份的，所以用法和细节就懒得介绍了，以后会记得来修补修补的
 ## 需求是这么回儿事(有事儿就别浪费时间读了)
 老板要竞标，让我们几个菜鸟直接开始搞了，我的任务是做ocr识别（简单理解为识别并提取图片中的内容），但是呢，一切要听老板的，做着做着就加需求了
