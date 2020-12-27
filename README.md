@@ -7,7 +7,7 @@ Extracting the content of files in the given directory and save it to the csv fi
 - usage: python ./ToCsv.py ../input_files [--save xxx\xxx\a.csv] [--mod 1]
 ## 简单雏形，后续有待改进
 - 放到github上的目的是备份的，所以用法和细节就懒得介绍了，以后会记得来修补修补的
-## 需求是这么回儿事
+## 需求是这么回儿事(有事儿就别浪费时间读了)
 老板要竞标，让我们几个菜鸟直接开始搞了，我的任务是做ocr识别（简单理解为识别并提取图片中的内容），但是呢，一切要听老板的，做着做着就加需求了
 我内心对自己做的工作的定位就是资源搜集+前处理，我自己的想法也很简单：非结构化->结构化
 毕竟都是打工仔，能多做点就多做点，不要给其他同学制造麻烦
