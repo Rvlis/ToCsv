@@ -1,7 +1,8 @@
 # ToCsv
 Extracting the content of files in the given directory and save it to the csv file.
 ## 你就这么用
-python .\ToCsv.py ../img [--save xxx\xxx\a.csv] [--mod 1]
+- environment: python=3.6
+- usage: python .\ToCsv.py ../img [--save xxx\xxx\a.csv] [--mod 1]
 ## 简单雏形，后续有待改进
 - 放到github上的目的是备份的，所以用法和细节就懒得介绍了，以后会记得来修补修补的
 ## 需求是这么回儿事
