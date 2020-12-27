@@ -13,6 +13,7 @@ instance.to_csv()实现转化
 # pip install tencentcloud-sdk-python
 # pip install python-docx
 
+# third-part libs
 from tesserocr import PyTessBaseAPI
 from pdfminer.high_level import extract_text
 from win32com import client as wc
