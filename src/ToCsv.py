@@ -11,6 +11,7 @@ instance.to_csv()实现转化
 # pip install pypiwin32
 # pip install bs4
 # pip install tencentcloud-sdk-python
+# pip install python-docx
 
 from tesserocr import PyTessBaseAPI
 from pdfminer.high_level import extract_text
@@ -21,11 +22,12 @@ from tencentcloud.common.profile.client_profile import ClientProfile
 from tencentcloud.common.profile.http_profile import HttpProfile
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
 from tencentcloud.ocr.v20181119 import ocr_client, models
+from docx import Document
 import base64
 import os
 import csv
 import time
-import docx
+# import docx
 import argparse
 # import codecs
 
@@ -59,13 +61,21 @@ class ToCsv(object):
         # print(htmls_path)
 
         # 不同类型文件转换后的txt可以选择不同目录存放
-        img_txt_path = self.img_to_txt(imgs_path, self.ocr_mod)
-        pdf_txt_path = self.pdf_to_txt(pdfs_path)
-        docx_txt_path = self.docx_to_txt(docxs_path)
-        html_txt_path = self.html_to_txt(htmls_path)
-
         # 这里选择存放到同一目录
-        txt_dir = img_txt_path
+        # 生成目录之前先判断各种类型文件是否存在
+        if imgs_path:
+            img_txt_path = self.img_to_txt(imgs_path, self.ocr_mod)
+            txt_dir = img_txt_path
+        if pdfs_path:
+            pdf_txt_path = self.pdf_to_txt(pdfs_path)
+            txt_dir = pdf_txt_path
+        if docxs_path:
+            docx_txt_path = self.docx_to_txt(docxs_path)
+            txt_dir = docx_txt_path
+        if htmls_path:
+            html_txt_path = self.html_to_txt(htmls_path)
+            txt_dir = html_txt_path
+
         self.txt_to_csv(txt_dir, self.csv_save_path)
 
 
@@ -358,11 +368,16 @@ class ToCsv(object):
                 txt_save_path = self.eliminate_dup_name(txt_save_path,save_dir)
             
             # text格式是list,docx库安装标点符号将原文拆分后装到链表中
-            text = docx.getdocumenttext(docx.opendocx(docx_path))
+            # text = docx.getdocumenttext(docx.opendocx(docx_path))
+            # with open(txt_save_path, "wt", encoding="gbk") as wf:
+            #     for line in text:
+            #         line = str((line.encode("gbk","ignore")).decode("gbk","ignore"))
+            #         wf.write(line)
+            document = Document(docx_path)
             with open(txt_save_path, "wt", encoding="gbk") as wf:
-                for line in text:
-                    line = str((line.encode("gbk","ignore")).decode("gbk","ignore"))
-                    wf.write(line)
+                for p in document.paragraphs:
+                    text = str((p.text.encode("gbk","ignore")).decode("gbk","ignore"))
+                    wf.write(text)
 
         txt_dirname = os.path.dirname(txt_save_path)
 
