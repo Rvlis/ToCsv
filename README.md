@@ -15,7 +15,7 @@ Extracting the content of files in the given directory and save it to the csv fi
 所以我的做法是这样的：
 - python优势得天独厚
 - 输入一堆不同类型文档，来者不拒；输出存放识别内容的txt文档集合，进一步将这些txt文档存放到csv文件里
-- ocr提供了model：1（default）:大厂接口，在线，每月有免费条数，效果好；0：google开源的tesserocr,凑合用，对中文识别效果不敢恭维，但是免费
+- ocr提供了两种model。1（default）:大厂接口，在线，每月有免费条数，效果好；0：google开源的tesserocr,凑合用，对中文识别效果不敢恭维，但是免费
 - 调几个库，又可以多识别几种类型了pdf/doc/docx/html，hhh
 - 老板说要加上音频的识别。。。初步想法还是想调大厂的接口，至于有没有开源工具没有去找，因为上次组会老板把这项任务甩给师兄了，hhh
 - 齐活了，把所有的功能封装一下，想了想就留一个接口给同门用吧，毕竟后期整合的活儿也不简单，能简则简吧
